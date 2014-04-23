@@ -91,6 +91,9 @@ public class DropletToNodeMetadata implements Function<Droplet, NodeMetadata> {
       }));
 
       Image image = images.get().get(String.valueOf(input.getImageId()));
+      // If the results of the /images API call do not contain an image with this droplet's image_id,
+      // the call above will return null and we won't know anything about the droplet's image.
+      // In this case we do not populate the builder's imageId and operatingSystem properties.
       if (image != null) {
           builder.imageId(image.getId());
           builder.operatingSystem(image.getOperatingSystem());

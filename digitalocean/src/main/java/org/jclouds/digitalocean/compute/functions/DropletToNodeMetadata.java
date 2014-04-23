@@ -33,7 +33,6 @@ import org.jclouds.compute.domain.NodeMetadata.Status;
 import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.compute.functions.GroupNamingConvention;
 import org.jclouds.digitalocean.domain.Droplet;
-import org.jclouds.digitalocean.domain.OperatingSystem;
 import org.jclouds.domain.Credentials;
 import org.jclouds.domain.Location;
 import org.jclouds.domain.LoginCredentials;
@@ -92,13 +91,10 @@ public class DropletToNodeMetadata implements Function<Droplet, NodeMetadata> {
       }));
 
       Image image = images.get().get(String.valueOf(input.getImageId()));
-      if (image == null) {
-          // just pick the first one. ugly but we won't crash
-          image = images.get().entrySet().iterator().next().getValue();
+      if (image != null) {
+          builder.imageId(image.getId());
+          builder.operatingSystem(image.getOperatingSystem());
       }
-
-      builder.imageId(image.getId());
-      builder.operatingSystem(image.getOperatingSystem());
 
       builder.status(toPortableStatus.apply(input.getStatus()));
       builder.backendStatus(input.getStatus().name());

@@ -65,7 +65,21 @@
   </repositories>
 
   <modules>
+    <!--<module>virtualbox</module>-->
+    <!--<module>vcloud-director</module>-->
+    <!--<module>dmtf</module>-->
+    <!--<module>cdmi</module>-->
+    <!--<module>cloudsigma2</module>-->
+    <!--<module>cloudsigma2-lvs</module>-->
+    <!--<module>cloudsigma2-wdc</module>-->
+    <!--<module>cloudsigma2-zrh</module>-->
     <module>digitalocean</module>
+    <!--<module>joyent-cloudapi</module>-->
+    <!--<module>joyentcloud</module>-->
+    <!--<module>fgcp</module>-->
+    <!--<module>fgcp-au</module>-->
+    <!--<module>fgcp-de</module>-->
+    <!--<module>abiquo</module>-->
     <module>jclouds-representations</module>
     <module>jclouds-management</module>
   </modules>

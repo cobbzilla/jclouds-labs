@@ -20,8 +20,6 @@ import javax.inject.Singleton;
 
 import org.jclouds.compute.functions.TemplateOptionsToStatement;
 import org.jclouds.compute.options.TemplateOptions;
-import org.jclouds.digitalocean.compute.strategy.DigitalOceanComputeServiceAdapter;
-import org.jclouds.digitalocean.features.KeyPairApi;
 import org.jclouds.scriptbuilder.InitScript;
 import org.jclouds.scriptbuilder.domain.Statement;
 import org.jclouds.scriptbuilder.domain.StatementList;
@@ -32,7 +30,8 @@ import com.google.common.collect.ImmutableList;
 /**
  * Convert the template options into a statement, but ignoring the public key.
  * <p>
- * The {@link DigitalOceanComputeServiceAdapter} already takes care of installing it using the {@link KeyPairApi}.
+ * The {@link org.jclouds.digitalocean.compute.strategy.DigitalOceanComputeServiceAdapter} already takes care of
+ * installing it using the {@link org.jclouds.digitalocean.features.KeyPairApi}.
  * 
  * @author Sergi Castro
  * @author Ignasi Barrera

@@ -20,8 +20,6 @@ import static org.testng.Assert.assertEquals;
 
 import java.net.URI;
 
-import javax.ws.rs.core.HttpHeaders;
-
 import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
 import org.jclouds.vcloud.director.v1_5.VCloudDirectorMediaType;
@@ -31,6 +29,8 @@ import org.jclouds.vcloud.director.v1_5.domain.query.QueryResultRecords;
 import org.jclouds.vcloud.director.v1_5.domain.query.QueryResultRoleRecord;
 import org.jclouds.vcloud.director.v1_5.internal.VCloudDirectorAdminApiExpectTest;
 import org.testng.annotations.Test;
+
+import com.google.common.net.HttpHeaders;
 
 /**
  * Test the {@link AdminQueryApi} by observing its side effects.
@@ -55,7 +55,7 @@ public class AdminQueryApiExpectTest extends VCloudDirectorAdminApiExpectTest {
               .addHeader(HttpHeaders.COOKIE, "vcloud-token=" + token)
               .build();
 
-      HttpResponse queryResponse= HttpResponse.builder()
+      HttpResponse queryResponse = HttpResponse.builder()
               .statusCode(200)
               .payload(payloadFromResourceWithContentType("/query/admin/allGroups.xml", VCloudDirectorMediaType.QUERY_RESULT_RECORDS + ";version=1.5"))
               .build();
@@ -101,7 +101,7 @@ public class AdminQueryApiExpectTest extends VCloudDirectorAdminApiExpectTest {
               .addHeader("x-vcloud-authorization", token)
               .addHeader(HttpHeaders.COOKIE, "vcloud-token=" + token).build();
 
-      HttpResponse queryResponse= HttpResponse.builder()
+      HttpResponse queryResponse = HttpResponse.builder()
               .statusCode(200)
               .payload(payloadFromResourceWithContentType("/query/admin/allRoles.xml", VCloudDirectorMediaType.QUERY_RESULT_RECORDS + ";version=1.5"))
               .build();

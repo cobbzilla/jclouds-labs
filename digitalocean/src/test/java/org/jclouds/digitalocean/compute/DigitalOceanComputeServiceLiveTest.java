@@ -16,7 +16,6 @@
  */
 package org.jclouds.digitalocean.compute;
 
-import org.jclouds.compute.ComputeService;
 import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.compute.internal.BaseComputeServiceLiveTest;
 import org.jclouds.sshj.config.SshjSshClientModule;
@@ -27,7 +26,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.inject.Module;
 
 /**
- * Live tests for the {@link ComputeService} integration.
+ * Live tests for the {@link org.jclouds.compute.ComputeService} integration.
  * 
  * @author Sergi Castro
  * @author Ignasi Barrera
